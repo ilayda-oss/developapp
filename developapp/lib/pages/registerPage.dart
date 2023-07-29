@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
-import '../components/myButton.dart';
+import '../components/myButton2.dart';
 import '../components/myTextfield.dart';
 import '../components/squareTile.dart';
 import '../services/auth_services.dart';
@@ -40,11 +39,13 @@ class _RegisterPageState extends State<RegisterPage> {
       if (passwordController.text == confirmpasswordController.text) {
         await FirebaseAuth.instance.createUserWithEmailAndPassword(
             email: useremailController.text, password: passwordController.text);
+        Navigator.pop(context);
       } else {
         showErrorMessage('Passwords don\'t match');
       }
-      Navigator.pop(context);
+
       // pop the loading circle
+      Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
       // pop the loading circle
       Navigator.pop(context);
@@ -71,132 +72,157 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFFDE456),
+      backgroundColor: Color(0xFF57209D),
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
             child: SingleChildScrollView(
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(height: 25), // empthy space
-                    //logo
-                    Icon(
-                      Icons.lock,
-                      size: 50,
-                    ),
-                    SizedBox(height: 25),
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 40),
+                child: Container(
+                  // Sayfanın tamamını kaplayacak şekilde genişliği ve yüksekliği ayarlayın
+                  width: 400.0, // Kutunun genişliği
+                  height: 700.0, // Kutunun yüksekliği
+                  decoration: BoxDecoration(
+                    border: Border.symmetric(),
+                    // Kenarlık kalınlığı
 
-                    // welcome back, you've been
-                    const Text(
-                      'Let\'s create an account for you!',
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 142, 141, 141),
-                        fontSize: 16,
-                      ),
+                    borderRadius: BorderRadius.circular(
+                        20.0), // Kutunun köşelerinin yuvarlaklığı
+                    image: DecorationImage(
+                      image:
+                          AssetImage('lib/images/ata1.png'), // Arka plan resmi
+                      fit: BoxFit.cover, // Resmi kutunun içine sığdır
                     ),
-                    const SizedBox(height: 25),
-                    // username textfield
-                    MyTextField(
-                      controller: useremailController,
-                      hintText: 'Username',
-                      obscureText: false,
-                    ),
-                    const SizedBox(height: 10),
-
-                    // password textfield
-                    MyTextField(
-                      controller: passwordController,
-                      hintText: 'Password',
-                      obscureText: true,
-                    ),
-                    const SizedBox(height: 10),
-                    // confirm password textfield
-                    MyTextField(
-                      controller: confirmpasswordController,
-                      hintText: 'Confirm Password',
-                      obscureText: true,
-                    ),
-                    const SizedBox(height: 50),
-
-                    //sign up button
-                    MyButton(
-                      text: 'Sign Up',
-                      onTap: signUserUp,
-                    ),
-                    const SizedBox(height: 50),
-                    // or continue with
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: Divider(
-                              thickness: 0.5,
-                              color: Colors.grey.shade400,
-                            ),
-                          ),
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 10.0),
-                            child: Text(
-                              'Or continue with',
-                              style: TextStyle(color: Colors.grey.shade700),
-                            ),
-                          ),
-                          Expanded(
-                            child: Divider(
-                              thickness: 0.5,
-                              color: Colors.grey.shade400,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(height: 50),
-
-                    // google + apple sign in button
-                    Row(
+                  ),
+                  child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        // google button
-                        SquareTile(
-                          onTap: () => AuthServise().signInWithGoogle(),
-                          imagePath: 'lib/images/Google-Logo.png',
+                        SizedBox(height: 25), // empthy space
+                        //logo
+                        Icon(
+                          Icons.lock,
+                          color: Color(0xFF57209D),
+                          size: 55,
                         ),
-                        SizedBox(width: 10),
+                        SizedBox(height: 15),
 
-                        // SquareTile(
-                        //   onTap: () {},
-                        //   imagePath: 'lib/images/apple-logo-icon-14895.png',
-                        // )
-
-                        // apple button
-                      ],
-                    ),
-                    SizedBox(height: 25),
-
-                    // not a member? register now
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Already have an account?',
-                          style: TextStyle(color: Colors.grey.shade700),
-                        ),
-                        const SizedBox(height: 4),
-                        GestureDetector(
-                          onTap: widget.onTap,
-                          child: const Text(
-                            'Login now.',
-                            style: TextStyle(
-                                color: Color(0xFF57209D),
-                                fontWeight: FontWeight.bold),
+                        // welcome back, you've been
+                        const Text(
+                          'Let\'s create an account for you!',
+                          style: TextStyle(
+                            color: Color.fromARGB(255, 142, 141, 141),
+                            fontSize: 16,
                           ),
+                        ),
+                        const SizedBox(height: 25),
+                        // username textfield
+                        MyTextField(
+                          controller: useremailController,
+                          hintText: '   Email',
+                          obscureText: false,
+                        ),
+                        const SizedBox(height: 10),
+
+                        // password textfield
+                        MyTextField(
+                          controller: passwordController,
+                          hintText: '   Şifre',
+                          obscureText: true,
+                        ),
+                        const SizedBox(height: 10),
+                        // confirm password textfield
+                        MyTextField(
+                          controller: confirmpasswordController,
+                          hintText: '   Şifreyi Onayla',
+                          obscureText: true,
+                        ),
+                        const SizedBox(height: 25),
+
+                        //sign up button
+                        MyButton2(
+                          text: 'Kaydol',
+                          onTap: signUserUp,
+                        ),
+                        const SizedBox(height: 50),
+                        // or continue with
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: Divider(
+                                  thickness: 0.5,
+                                  color: Colors.grey.shade400,
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 10.0),
+                                child: Text(
+                                  'Şununla devam et',
+                                  style: TextStyle(color: Colors.grey.shade400),
+                                ),
+                              ),
+                              Expanded(
+                                child: Divider(
+                                  thickness: 0.5,
+                                  color: Colors.grey.shade400,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+
+                        // google + apple sign in button
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const SizedBox(width: 23.0),
+
+                            // google button
+                            SquareTile(
+                              onTap: () => AuthServise().signInWithGoogle(),
+                              imagePath: 'lib/images/Google-Logo.png',
+                            ),
+                            const SizedBox(width: 10),
+
+                            // SquareTile(
+                            //   onTap: () {},
+                            //   imagePath: 'lib/images/apple-logo-icon-14895.png',
+                            // )
+
+                            // apple button
+                          ],
+                        ),
+                        const SizedBox(height: 25),
+
+                        // not a member? register now
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Zaten hesabın var mı?',
+                              style: TextStyle(
+                                color: Colors.grey.shade400,
+                              ),
+                            ),
+                            const SizedBox(height: 4),
+                            GestureDetector(
+                              onTap: widget.onTap,
+                              child: const Text(
+                                'Oturum aç.',
+                                style: TextStyle(
+                                    color: Color(0xFF57209D),
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            )
+                          ],
                         )
-                      ],
-                    )
-                  ]),
+                      ]),
+                ),
+              ),
             ),
           ),
         ),
