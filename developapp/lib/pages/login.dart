@@ -121,7 +121,7 @@ class _LoginPageState extends State<LoginPage> {
                               fontSize: 14,
                               fontWeight: FontWeight.bold),
                         ),
-                        const SizedBox(height: 55),
+                        const SizedBox(height: 45),
                         // username textfield
                         MyTextField1(
                           controller: useremailController,
@@ -153,7 +153,7 @@ class _LoginPageState extends State<LoginPage> {
                             ],
                           ),
                         ),
-                        const SizedBox(height: 15),
+                        const SizedBox(height: 25),
 
                         //sign in button
                         MyButton1(
