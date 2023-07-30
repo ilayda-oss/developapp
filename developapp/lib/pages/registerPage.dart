@@ -1,7 +1,8 @@
+import 'package:developapp/components/myTextfield2.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../components/myButton2.dart';
-import '../components/myTextfield.dart';
+import '../components/myTextfield1.dart';
 import '../components/squareTile.dart';
 import '../services/auth_services.dart';
 
@@ -60,7 +61,7 @@ class _RegisterPageState extends State<RegisterPage> {
         context: context,
         builder: (context) {
           return AlertDialog(
-            backgroundColor: Colors.deepPurple,
+            backgroundColor: Color(0xFF57209D),
             title: Text(
               message,
               style: const TextStyle(color: Colors.white),
@@ -71,9 +72,15 @@ class _RegisterPageState extends State<RegisterPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color(0xFF57209D),
-      body: SafeArea(
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage('lib/images/işaret.png'),
+          fit: BoxFit.scaleDown,
+          repeat: ImageRepeat.repeat, // Resmi sürekli tekrarla
+        ),
+      ),
+      child: SafeArea(
         child: Center(
           child: SingleChildScrollView(
             child: SingleChildScrollView(
@@ -82,7 +89,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 child: Container(
                   // Sayfanın tamamını kaplayacak şekilde genişliği ve yüksekliği ayarlayın
                   width: 400.0, // Kutunun genişliği
-                  height: 700.0, // Kutunun yüksekliği
+                  height: 600.0, // Kutunun yüksekliği
                   decoration: BoxDecoration(
                     border: Border.symmetric(),
                     // Kenarlık kalınlığı
@@ -90,9 +97,9 @@ class _RegisterPageState extends State<RegisterPage> {
                     borderRadius: BorderRadius.circular(
                         20.0), // Kutunun köşelerinin yuvarlaklığı
                     image: DecorationImage(
-                      image:
-                          AssetImage('lib/images/ata1.png'), // Arka plan resmi
-                      fit: BoxFit.cover, // Resmi kutunun içine sığdır
+                      image: AssetImage(
+                          'lib/images/sarıback.png'), // Arka plan resmi
+                      fit: BoxFit.fill, // Resmi kutunun içine sığdır
                     ),
                   ),
                   child: Column(
@@ -100,24 +107,26 @@ class _RegisterPageState extends State<RegisterPage> {
                       children: [
                         SizedBox(height: 25), // empthy space
                         //logo
-                        Icon(
-                          Icons.lock,
-                          color: Color(0xFF57209D),
-                          size: 55,
-                        ),
-                        SizedBox(height: 15),
+                        // Icon(
+                        //   Icons.lock,
+                        //   color: Color(0xFF57209D),
+                        //   size: 25,
+                        // ),
+                        SizedBox(height: 10),
 
                         // welcome back, you've been
                         const Text(
-                          'Let\'s create an account for you!',
+                          'Yeni Hesap \n    Oluştur',
                           style: TextStyle(
-                            color: Color.fromARGB(255, 142, 141, 141),
-                            fontSize: 16,
-                          ),
+                              fontWeight: FontWeight.w900,
+                              color: Color(0xFF57209D),
+                              fontSize: 36,
+                              fontFamily: 'Open Sans'),
                         ),
-                        const SizedBox(height: 25),
+
+                        const SizedBox(height: 15),
                         // username textfield
-                        MyTextField(
+                        MyTextField2(
                           controller: useremailController,
                           hintText: '   Email',
                           obscureText: false,
@@ -125,14 +134,14 @@ class _RegisterPageState extends State<RegisterPage> {
                         const SizedBox(height: 10),
 
                         // password textfield
-                        MyTextField(
+                        MyTextField2(
                           controller: passwordController,
                           hintText: '   Şifre',
                           obscureText: true,
                         ),
                         const SizedBox(height: 10),
                         // confirm password textfield
-                        MyTextField(
+                        MyTextField2(
                           controller: confirmpasswordController,
                           hintText: '   Şifreyi Onayla',
                           obscureText: true,
@@ -144,7 +153,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           text: 'Kaydol',
                           onTap: signUserUp,
                         ),
-                        const SizedBox(height: 50),
+                        const SizedBox(height: 9),
                         // or continue with
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 25.0),
@@ -153,7 +162,7 @@ class _RegisterPageState extends State<RegisterPage> {
                               Expanded(
                                 child: Divider(
                                   thickness: 0.5,
-                                  color: Colors.grey.shade400,
+                                  color: Color(0xFF57209D),
                                 ),
                               ),
                               Padding(
@@ -161,13 +170,13 @@ class _RegisterPageState extends State<RegisterPage> {
                                     horizontal: 10.0),
                                 child: Text(
                                   'Şununla devam et',
-                                  style: TextStyle(color: Colors.grey.shade400),
+                                  style: TextStyle(color: Color(0xFF57209D)),
                                 ),
                               ),
                               Expanded(
                                 child: Divider(
                                   thickness: 0.5,
-                                  color: Colors.grey.shade400,
+                                  color: Color(0xFF57209D),
                                 ),
                               ),
                             ],
@@ -196,7 +205,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             // apple button
                           ],
                         ),
-                        const SizedBox(height: 25),
+                        const SizedBox(height: 15),
 
                         // not a member? register now
                         Row(
@@ -205,7 +214,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             Text(
                               'Zaten hesabın var mı?',
                               style: TextStyle(
-                                color: Colors.grey.shade400,
+                                color: Color(0xFF57209D),
                               ),
                             ),
                             const SizedBox(height: 4),

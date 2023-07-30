@@ -18,7 +18,7 @@ class SquareTile extends StatelessWidget {
             color: Colors.grey.shade200),
         child: Image.asset(
           imagePath,
-          height: 40,
+          height: 25,
         ),
       ),
     );

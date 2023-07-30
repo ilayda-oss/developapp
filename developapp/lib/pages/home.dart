@@ -13,8 +13,23 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(actions: [
         IconButton(onPressed: signUserOut, icon: Icon(Icons.heart_broken)),
       ]),
-      body: Center(
-        child: Text("Logged in"),
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('lib/images/kutu.png'),
+            fit: BoxFit.scaleDown,
+            repeat: ImageRepeat.repeat, // Resmi sürekli tekrarla
+          ),
+        ),
+        child: Center(
+          child: Text(
+            'Merhaba, Flutter!',
+            style: TextStyle(
+              fontSize: 24,
+              color: Colors.black,
+            ),
+          ),
+        ),
       ),
     );
   }

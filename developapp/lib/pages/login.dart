@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../components/myButton1.dart';
-import '../components/myTextfield.dart';
+import '../components/myTextfield1.dart';
 import '../components/squareTile.dart';
 import '../services/auth_services.dart';
 
@@ -62,9 +62,15 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color(0xFFFDE456),
-      body: SafeArea(
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage('lib/images/kutu.png'),
+          fit: BoxFit.scaleDown,
+          repeat: ImageRepeat.repeat, // Resmi sürekli tekrarla
+        ),
+      ),
+      child: SafeArea(
         child: Center(
           child: SingleChildScrollView(
             child: SingleChildScrollView(
@@ -73,7 +79,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: Container(
                   // Sayfanın tamamını kaplayacak şekilde genişliği ve yüksekliği ayarlayın
                   width: 400.0, // Kutunun genişliği
-                  height: 700.0, // Kutunun yüksekliği
+                  height: 600.0, // Kutunun yüksekliği
                   decoration: BoxDecoration(
                     border: Border.symmetric(),
                     // Kenarlık kalınlığı
@@ -81,43 +87,44 @@ class _LoginPageState extends State<LoginPage> {
                     borderRadius: BorderRadius.circular(
                         20.0), // Kutunun köşelerinin yuvarlaklığı
                     image: DecorationImage(
-                      image:
-                          AssetImage('lib/images/Atam.png'), // Arka plan resmi
-                      fit: BoxFit.cover, // Resmi kutunun içine sığdır
+                      image: AssetImage(
+                          'lib/images/morback.png'), // Arka plan resmi
+                      fit: BoxFit.fill, // Resmi kutunun içine sığdır
                     ),
                   ),
+
                   child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SizedBox(height: 25), // empthy space
-                        //logo
-                        Icon(
-                          Icons.lock,
-                          color: Color(0xFFFDE456),
-                          size: 50,
-                        ),
-
-                        SizedBox(height: 45),
-                        // const Text(
-                        //   'Oturum aç',
-                        //   style: TextStyle(
-                        //       color: Color(0xFFFDE456),
-                        //       fontWeight: FontWeight.w900,
-                        //       fontSize: 45,
-                        //       fontFamily: 'Open Sans'),
+                        SizedBox(height: 15), // empthy space
+                        // //logo
+                        // Icon(
+                        //   Icons.lock,
+                        //   color: Color(0xFFFDE456),
+                        //   size: 50,
                         // ),
-                        SizedBox(height: 2),
+
+                        SizedBox(height: 9),
+                        const Text(
+                          'Oturum aç',
+                          style: TextStyle(
+                              color: Color(0xFFFDE456),
+                              fontWeight: FontWeight.w900,
+                              fontSize: 45,
+                              fontFamily: 'Open Sans'),
+                        ),
+                        SizedBox(height: 9),
                         // welcome back, you've been
                         const Text(
-                          'Welcome back you\'ve been missed!',
+                          'Devam etmek için oturum aç.',
                           style: TextStyle(
                               color: Color(0xFFFDE456),
                               fontSize: 14,
                               fontWeight: FontWeight.bold),
                         ),
-                        const SizedBox(height: 10),
+                        const SizedBox(height: 15),
                         // username textfield
-                        MyTextField(
+                        MyTextField1(
                           controller: useremailController,
                           hintText: '   Email',
                           obscureText: false,
@@ -126,7 +133,7 @@ class _LoginPageState extends State<LoginPage> {
                         const SizedBox(height: 15),
 
                         // password textfield
-                        MyTextField(
+                        MyTextField1(
                           controller: passwordController,
                           hintText: '   Şifre',
                           obscureText: true,
@@ -183,7 +190,7 @@ class _LoginPageState extends State<LoginPage> {
                             ],
                           ),
                         ),
-                        const SizedBox(height: 10),
+                        const SizedBox(height: 15),
 
                         // google + apple sign in button
                         Row(
@@ -204,7 +211,7 @@ class _LoginPageState extends State<LoginPage> {
                             // apple button
                           ],
                         ),
-                        SizedBox(height: 25),
+                        SizedBox(height: 7),
 
                         // not a member? register now
                         Row(
@@ -212,7 +219,7 @@ class _LoginPageState extends State<LoginPage> {
                           children: [
                             Text(
                               'Hesabın yok mu?',
-                              style: TextStyle(color: Colors.grey.shade700),
+                              style: TextStyle(color: Color(0xFFFDE456)),
                             ),
                             const SizedBox(height: 4),
                             GestureDetector(
@@ -220,7 +227,7 @@ class _LoginPageState extends State<LoginPage> {
                               child: const Text(
                                 'Kayıt ol.',
                                 style: TextStyle(
-                                    color: Color(0xFF57209D),
+                                    color: Color(0xFFFDE456),
                                     fontWeight: FontWeight.bold),
                               ),
                             )
