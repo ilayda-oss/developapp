@@ -96,7 +96,7 @@ class _LoginPageState extends State<LoginPage> {
                   child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SizedBox(height: 15), // empthy space
+                        // empthy space
                         // //logo
                         // Icon(
                         //   Icons.lock,
@@ -104,7 +104,6 @@ class _LoginPageState extends State<LoginPage> {
                         //   size: 50,
                         // ),
 
-                        SizedBox(height: 9),
                         const Text(
                           'Oturum aç',
                           style: TextStyle(
@@ -122,7 +121,7 @@ class _LoginPageState extends State<LoginPage> {
                               fontSize: 14,
                               fontWeight: FontWeight.bold),
                         ),
-                        const SizedBox(height: 15),
+                        const SizedBox(height: 55),
                         // username textfield
                         MyTextField1(
                           controller: useremailController,
@@ -197,11 +196,12 @@ class _LoginPageState extends State<LoginPage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             // google button
+                            SizedBox(width: 13.0),
                             SquareTile(
                               onTap: () => AuthServise().signInWithGoogle(),
                               imagePath: 'lib/images/Google-Logo.png',
                             ),
-                            SizedBox(width: 1),
+                            SizedBox(width: 10),
 
                             // SquareTile(
                             //   onTap: () => AuthServise().signInWithApple(),
@@ -218,14 +218,14 @@ class _LoginPageState extends State<LoginPage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Hesabın yok mu?',
+                              'Hesabın yok mu? ',
                               style: TextStyle(color: Color(0xFFFDE456)),
                             ),
                             const SizedBox(height: 4),
                             GestureDetector(
                               onTap: widget.onTap,
                               child: const Text(
-                                'Kayıt ol.',
+                                'Kaydol.',
                                 style: TextStyle(
                                     color: Color(0xFFFDE456),
                                     fontWeight: FontWeight.bold),

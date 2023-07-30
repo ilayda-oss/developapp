@@ -105,14 +105,14 @@ class _RegisterPageState extends State<RegisterPage> {
                   child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SizedBox(height: 25), // empthy space
+                        // empthy space
                         //logo
                         // Icon(
                         //   Icons.lock,
                         //   color: Color(0xFF57209D),
                         //   size: 25,
                         // ),
-                        SizedBox(height: 10),
+                        SizedBox(height: 9),
 
                         // welcome back, you've been
                         const Text(
@@ -124,7 +124,7 @@ class _RegisterPageState extends State<RegisterPage> {
                               fontFamily: 'Open Sans'),
                         ),
 
-                        const SizedBox(height: 15),
+                        const SizedBox(height: 25),
                         // username textfield
                         MyTextField2(
                           controller: useremailController,
@@ -153,7 +153,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           text: 'Kaydol',
                           onTap: signUserUp,
                         ),
-                        const SizedBox(height: 9),
+                        const SizedBox(height: 20),
                         // or continue with
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 25.0),
@@ -188,7 +188,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            const SizedBox(width: 23.0),
+                            const SizedBox(width: 13.0),
 
                             // google button
                             SquareTile(
@@ -205,14 +205,14 @@ class _RegisterPageState extends State<RegisterPage> {
                             // apple button
                           ],
                         ),
-                        const SizedBox(height: 15),
+                        const SizedBox(height: 5),
 
                         // not a member? register now
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Zaten hesabın var mı?',
+                              'Zaten hesabın var mı?  ',
                               style: TextStyle(
                                 color: Color(0xFF57209D),
                               ),

@@ -12,7 +12,7 @@ class MyButton2 extends StatelessWidget {
       onTap: onTap,
       child: Container(
         padding: const EdgeInsets.all(15),
-        margin: const EdgeInsets.symmetric(horizontal: 80),
+        margin: const EdgeInsets.symmetric(horizontal: 100),
         decoration: BoxDecoration(
           color: Color(0xFF57209D),
           borderRadius: BorderRadius.circular(55), // sharpe corners gone
@@ -23,7 +23,7 @@ class MyButton2 extends StatelessWidget {
             style: const TextStyle(
                 color: Color(0xFFFDE456),
                 fontWeight: FontWeight.bold,
-                fontSize: 29),
+                fontSize: 23),
           ),
         ),
       ),

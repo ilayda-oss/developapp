@@ -15,7 +15,7 @@ class MyTextField2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 45.0),
+      padding: const EdgeInsets.symmetric(horizontal: 47.0),
       child: TextField(
         controller: controller,
         obscureText: obscureText,
