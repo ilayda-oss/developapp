@@ -1,7 +1,8 @@
+import 'package:developapp/pages/forgot_password.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import '../components/myButton1.dart';
-import '../components/myTextfield1.dart';
+import '../components/my_button1.dart';
+import '../components/my_textfield1.dart';
 import '../components/squareTile.dart';
 import '../services/auth_services.dart';
 
@@ -40,12 +41,13 @@ class _LoginPageState extends State<LoginPage> {
     } on FirebaseAuthException catch (e) {
       // pop the loading circle
       Navigator.pop(context);
-      // wrong email
+      // show wrong message
       showErrorMessage(e.code);
     }
+    // pop the loading circle
   }
 
-  // wrong email message popup
+  // error  message to user
   void showErrorMessage(String message) {
     showDialog(
         context: context,
@@ -141,14 +143,23 @@ class _LoginPageState extends State<LoginPage> {
                         // forgot password?
 
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 45.0),
+                          padding: const EdgeInsets.symmetric(horizontal: 55.0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              Text(
-                                'Şifremi Unuttum',
-                                style: TextStyle(
-                                    color: Color.fromARGB(255, 158, 157, 157)),
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(context,
+                                      MaterialPageRoute(builder: (context) {
+                                    return ForgotPasswordPage();
+                                  }));
+                                },
+                                child: Text(
+                                  'Şifremi Unuttum',
+                                  style: TextStyle(
+                                      color: Color(0xFFFDE456),
+                                      fontWeight: FontWeight.bold),
+                                ),
                               ),
                             ],
                           ),

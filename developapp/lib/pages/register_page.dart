@@ -1,8 +1,8 @@
-import 'package:developapp/components/myTextfield2.dart';
+import 'package:developapp/components/my_textfield2.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import '../components/myButton2.dart';
-import '../components/myTextfield1.dart';
+import '../components/my_button2.dart';
+import '../components/my_textfield1.dart';
 import '../components/squareTile.dart';
 import '../services/auth_services.dart';
 
@@ -32,24 +32,24 @@ class _RegisterPageState extends State<RegisterPage> {
             child: CircularProgressIndicator(),
           );
         });
-
     // try creating the user
     try {
       // check if password is comfirmed
-      // ignore: unrelated_type_equality_checks
       if (passwordController.text == confirmpasswordController.text) {
         await FirebaseAuth.instance.createUserWithEmailAndPassword(
             email: useremailController.text, password: passwordController.text);
         Navigator.pop(context);
       } else {
+        Navigator.pop(context);
+        // show error message, passwords dont match
         showErrorMessage('Passwords don\'t match');
       }
 
       // pop the loading circle
-      Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
       // pop the loading circle
       Navigator.pop(context);
+
       // wrong email
       showErrorMessage(e.code);
     }
