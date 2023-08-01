@@ -1,6 +1,8 @@
-import 'package:developapp/components/my_button2.dart';
 import 'package:developapp/pages/auth_page.dart';
+import 'package:developapp/pages/onboarding_page.dart';
 import 'package:flutter/material.dart';
+
+import '../components/my_button4.dart';
 
 class StartPage extends StatelessWidget {
   const StartPage({super.key});
@@ -11,8 +13,6 @@ class StartPage extends StatelessWidget {
       decoration: BoxDecoration(
         image: DecorationImage(
           image: AssetImage('lib/images/start.png'),
-          fit: BoxFit.scaleDown,
-          repeat: ImageRepeat.repeat, // Resmi sürekli tekrarla
         ),
       ),
       child: Column(
@@ -21,14 +21,14 @@ class StartPage extends StatelessWidget {
             height: 170,
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 300, horizontal: 1),
-            child: MyButton2(
+            padding: const EdgeInsets.symmetric(vertical: 300, horizontal: 6),
+            child: MyButton4(
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return AuthPage();
+                    return OnBoardingScreen();
                   }));
                 },
-                text: 'Start'),
+                text: 'START'),
           ),
         ],
       ),
