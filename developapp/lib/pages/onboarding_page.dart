@@ -1,7 +1,9 @@
+import 'package:developapp/components/my_button4.dart';
 import 'package:developapp/pages/auth_page.dart';
 import 'package:developapp/pages/login.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import '../components/my_button5.dart';
 import 'intro_page1.dart';
 import 'intro_page2.dart';
 import 'intro_page3.dart';
@@ -38,6 +40,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               IntroPage4(),
             ],
           ),
+
           //dot indicators
           Container(
               alignment: Alignment(0, 0.75),
@@ -52,7 +55,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                             curve: Curves.easeIn,
                           );
                         },
-                        child: Text('geri')),
+                        child: Text('')),
                     // dot indicator
                     SmoothPageIndicator(controller: _controller, count: 4),
                     // next or done
@@ -64,7 +67,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                                 return AuthPage();
                               }));
                             },
-                            child: Text('bitti'))
+                            child: Text(''))
                         : GestureDetector(
                             onTap: () {
                               _controller.nextPage(
@@ -72,7 +75,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                                 curve: Curves.easeIn,
                               );
                             },
-                            child: Text('sonraki'))
+                            child: Text(''))
                   ])),
         ],
       ),

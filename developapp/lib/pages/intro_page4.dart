@@ -1,4 +1,7 @@
+import 'package:developapp/pages/auth_page.dart';
 import 'package:flutter/material.dart';
+
+import '../components/my_button5.dart';
 
 class IntroPage4 extends StatelessWidget {
   const IntroPage4({super.key});
@@ -16,9 +19,23 @@ class IntroPage4 extends StatelessWidget {
             decoration: BoxDecoration(
               border: Border.symmetric(),
               image: DecorationImage(
-                image: AssetImage("lib/images/4.png"),
+                image: AssetImage("lib/images/yeni.png"),
                 fit: BoxFit.contain,
               ),
+            ),
+            // child: Padding(
+            //padding: const EdgeInsets.only(bottom: 135, top: 500),
+
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 90, top: 545),
+              child: MyButton5(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return AuthPage();
+                    }));
+                  },
+                  text: 'DEVELOP'),
             ),
           ),
         ),
