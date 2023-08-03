@@ -19,7 +19,7 @@ class IntroPage4 extends StatelessWidget {
             decoration: BoxDecoration(
               border: Border.symmetric(),
               image: DecorationImage(
-                image: AssetImage("lib/images/yeni.png"),
+                image: AssetImage("lib/images/4.png"),
                 fit: BoxFit.contain,
               ),
             ),
