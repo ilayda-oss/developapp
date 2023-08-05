@@ -1,28 +1,28 @@
-import 'package:developapp/components/my_textfield2.dart';
+import 'package:developapp/pages/login_pages/forgot_password.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import '../components/my_button2.dart';
-import '../components/squareTile.dart';
-import '../services/auth_services.dart';
+import '../../components/my_button1.dart';
+import '../../components/my_textfield1.dart';
+import '../../components/squareTile.dart';
+import '../../services/auth_services.dart';
 
-class RegisterPage extends StatefulWidget {
+class LoginPage extends StatefulWidget {
   final Function()? onTap;
-  const RegisterPage({super.key, required this.onTap});
+  LoginPage({super.key, required this.onTap});
 
   @override
-  State<RegisterPage> createState() => _RegisterPageState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _RegisterPageState extends State<RegisterPage> {
+class _LoginPageState extends State<LoginPage> {
   // text editing controllers
   final useremailController = TextEditingController();
 
   final passwordController = TextEditingController();
+  // colors
 
-  final confirmpasswordController = TextEditingController();
-
-  // sing user up method
-  void signUserUp() async {
+  // sing user in method
+  void signUserIn() async {
     // show loading circle
     showDialog(
         context: context,
@@ -31,36 +31,29 @@ class _RegisterPageState extends State<RegisterPage> {
             child: CircularProgressIndicator(),
           );
         });
-    // try creating the user
-    try {
-      // check if password is comfirmed
-      if (passwordController.text == confirmpasswordController.text) {
-        await FirebaseAuth.instance.createUserWithEmailAndPassword(
-            email: useremailController.text, password: passwordController.text);
-        Navigator.pop(context);
-      } else {
-        Navigator.pop(context);
-        // show error message, passwords dont match
-        showErrorMessage('Passwords don\'t match');
-      }
 
+    // try sign in
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: useremailController.text, password: passwordController.text);
+      Navigator.pop(context);
       // pop the loading circle
     } on FirebaseAuthException catch (e) {
       // pop the loading circle
       Navigator.pop(context);
-
-      // wrong email
+      // show wrong message
       showErrorMessage(e.code);
     }
+    // pop the loading circle
   }
 
-  // wrong email message popup
+  // error  message to user
   void showErrorMessage(String message) {
     showDialog(
         context: context,
         builder: (context) {
           return AlertDialog(
-            backgroundColor: Color(0xFF57209D),
+            backgroundColor: Colors.deepPurple,
             title: Text(
               message,
               style: const TextStyle(color: Colors.white),
@@ -74,7 +67,7 @@ class _RegisterPageState extends State<RegisterPage> {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('lib/images/işaret.png'),
+          image: AssetImage('lib/images/kutu.png'),
           fit: BoxFit.scaleDown,
           repeat: ImageRepeat.repeat, // Resmi sürekli tekrarla
         ),
@@ -97,62 +90,88 @@ class _RegisterPageState extends State<RegisterPage> {
                         20.0), // Kutunun köşelerinin yuvarlaklığı
                     image: DecorationImage(
                       image: AssetImage(
-                          'lib/images/sarıback.png'), // Arka plan resmi
+                          'lib/images/morback.png'), // Arka plan resmi
                       fit: BoxFit.fill, // Resmi kutunun içine sığdır
                     ),
                   ),
+
                   child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         // empthy space
-                        //logo
+                        // //logo
                         // Icon(
                         //   Icons.lock,
-                        //   color: Color(0xFF57209D),
-                        //   size: 25,
+                        //   color: Color(0xFFFDE456),
+                        //   size: 50,
                         // ),
-                        SizedBox(height: 9),
 
-                        // welcome back, you've been
                         const Text(
-                          'Yeni Hesap \n    Oluştur',
+                          'Oturum aç',
                           style: TextStyle(
+                              color: Color(0xFFFDE456),
                               fontWeight: FontWeight.w900,
-                              color: Color(0xFF57209D),
-                              fontSize: 36,
+                              fontSize: 45,
                               fontFamily: 'Open Sans'),
                         ),
-
-                        const SizedBox(height: 25),
+                        SizedBox(height: 9),
+                        // welcome back, you've been
+                        const Text(
+                          'Devam etmek için oturum aç.',
+                          style: TextStyle(
+                              color: Color(0xFFFDE456),
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        const SizedBox(height: 45),
                         // username textfield
-                        MyTextField2(
+                        MyTextField1(
                           controller: useremailController,
                           hintText: '   Email',
                           obscureText: false,
                         ),
-                        const SizedBox(height: 10),
+
+                        const SizedBox(height: 15),
 
                         // password textfield
-                        MyTextField2(
+                        MyTextField1(
                           controller: passwordController,
                           hintText: '   Şifre',
                           obscureText: true,
                         ),
                         const SizedBox(height: 10),
-                        // confirm password textfield
-                        MyTextField2(
-                          controller: confirmpasswordController,
-                          hintText: '   Şifreyi Onayla',
-                          obscureText: true,
+                        // forgot password?
+
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 55.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(context,
+                                      MaterialPageRoute(builder: (context) {
+                                    return ForgotPasswordPage();
+                                  }));
+                                },
+                                child: Text(
+                                  'Şifremi Unuttum',
+                                  style: TextStyle(
+                                      color: Color(0xFFFDE456),
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                         const SizedBox(height: 25),
 
-                        //sign up button
-                        MyButton2(
-                          text: 'Kaydol',
-                          onTap: signUserUp,
+                        //sign in button
+                        MyButton1(
+                          text: 'Giriş Yap',
+                          onTap: signUserIn,
                         ),
-                        const SizedBox(height: 20),
+                        const SizedBox(height: 25),
                         // or continue with
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 25.0),
@@ -160,8 +179,8 @@ class _RegisterPageState extends State<RegisterPage> {
                             children: [
                               Expanded(
                                 child: Divider(
-                                  thickness: 0.5,
-                                  color: Color(0xFF57209D),
+                                  thickness: .75,
+                                  color: Color(0xFFFDE456),
                                 ),
                               ),
                               Padding(
@@ -169,60 +188,57 @@ class _RegisterPageState extends State<RegisterPage> {
                                     horizontal: 10.0),
                                 child: Text(
                                   'Şununla devam et',
-                                  style: TextStyle(color: Color(0xFF57209D)),
+                                  style: TextStyle(color: Color(0xFFFDE456)),
                                 ),
                               ),
                               Expanded(
                                 child: Divider(
-                                  thickness: 0.5,
-                                  color: Color(0xFF57209D),
+                                  thickness: .75,
+                                  color: Color(0xFFFDE456),
                                 ),
                               ),
                             ],
                           ),
                         ),
-                        const SizedBox(height: 10),
+                        const SizedBox(height: 15),
 
                         // google + apple sign in button
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            const SizedBox(width: 13.0),
-
                             // google button
+                            SizedBox(width: 13.0),
                             SquareTile(
                               onTap: () => AuthServise().signInWithGoogle(),
                               imagePath: 'lib/images/Google-Logo.png',
                             ),
-                            const SizedBox(width: 10),
+                            SizedBox(width: 10),
 
                             // SquareTile(
-                            //   onTap: () {},
+                            //   onTap: () => AuthServise().signInWithApple(),
                             //   imagePath: 'lib/images/apple-logo-icon-14895.png',
                             // )
 
                             // apple button
                           ],
                         ),
-                        const SizedBox(height: 5),
+                        SizedBox(height: 7),
 
                         // not a member? register now
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Zaten hesabın var mı?  ',
-                              style: TextStyle(
-                                color: Color(0xFF57209D),
-                              ),
+                              'Hesabın yok mu? ',
+                              style: TextStyle(color: Color(0xFFFDE456)),
                             ),
                             const SizedBox(height: 4),
                             GestureDetector(
                               onTap: widget.onTap,
                               child: const Text(
-                                'Oturum aç.',
+                                'Kaydol.',
                                 style: TextStyle(
-                                    color: Color(0xFF57209D),
+                                    color: Color(0xFFFDE456),
                                     fontWeight: FontWeight.bold),
                               ),
                             )

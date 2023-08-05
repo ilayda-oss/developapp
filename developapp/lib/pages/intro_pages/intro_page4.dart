@@ -1,7 +1,7 @@
-import 'package:developapp/pages/auth_page.dart';
+import 'package:developapp/pages/login_pages/auth_page.dart';
 import 'package:flutter/material.dart';
 
-import '../components/my_button5.dart';
+import '../../components/my_button5.dart';
 
 class IntroPage4 extends StatelessWidget {
   const IntroPage4({super.key});

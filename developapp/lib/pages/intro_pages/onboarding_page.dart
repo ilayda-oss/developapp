@@ -1,9 +1,9 @@
 import 'package:developapp/components/my_button4.dart';
-import 'package:developapp/pages/auth_page.dart';
-import 'package:developapp/pages/login.dart';
+import 'package:developapp/pages/login_pages/auth_page.dart';
+import 'package:developapp/pages/login_pages/login.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import '../components/my_button5.dart';
+import '../../components/my_button5.dart';
 import 'intro_page1.dart';
 import 'intro_page2.dart';
 import 'intro_page3.dart';

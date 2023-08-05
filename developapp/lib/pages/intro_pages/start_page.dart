@@ -1,8 +1,8 @@
-import 'package:developapp/pages/auth_page.dart';
-import 'package:developapp/pages/onboarding_page.dart';
+import 'package:developapp/pages/login_pages/auth_page.dart';
+import 'package:developapp/pages/intro_pages/onboarding_page.dart';
 import 'package:flutter/material.dart';
 
-import '../components/my_button4.dart';
+import '../../components/my_button4.dart';
 
 class StartPage extends StatelessWidget {
   const StartPage({super.key});
