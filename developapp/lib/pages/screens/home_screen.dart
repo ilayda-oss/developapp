@@ -30,20 +30,50 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
         ),
-        body: Column(
-          children: [
-            Expanded(
-                child: ListView.builder(
-                    itemCount: 8,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Container(
-                          color: Colors.purple,
-                          height: 220,
-                        ),
-                      );
-                    }))
+        body: CustomScrollView(
+          slivers: [
+            SliverAppBar(
+                flexibleSpace: FlexibleSpaceBar(
+                  background: Container(
+                    color: Color(0xFF57209D),
+                  ),
+                ),
+                automaticallyImplyLeading: false,
+                expandedHeight: 300,
+                backgroundColor: Color.fromARGB(255, 228, 103, 176)),
+            SliverToBoxAdapter(
+                child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Container(
+                  height: 250,
+                  color: Color(0xFF57209D),
+                ),
+              ),
+            )),
+            SliverToBoxAdapter(
+                child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Container(
+                  height: 250,
+                  color: Color(0xFF57209D),
+                ),
+              ),
+            )),
+            SliverToBoxAdapter(
+                child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Container(
+                  height: 250,
+                  color: Color(0xFF57209D),
+                ),
+              ),
+            ))
           ],
         ));
   }
