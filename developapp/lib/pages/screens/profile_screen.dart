@@ -7,15 +7,14 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final text = MediaQuery.of(context).platformBrightness == Brightness.dark
-        ? 'DrakTheme'
-        : 'LightTheme';
     return Container(
-        child: Scaffold(
-      drawer: NavBar(),
-      backgroundColor: Color(0xFFFDE456),
-      appBar: AppBar(),
-    ));
+      child: Scaffold(
+          drawer: NavBar(),
+          backgroundColor: Color(0xFFFDE456),
+          appBar: AppBar(
+            backgroundColor: Color.fromARGB(255, 228, 103, 176),
+          )),
+    );
   }
 }
 //  Color(0xFF57209D), mor, Color(0xFFFDE456), sarı

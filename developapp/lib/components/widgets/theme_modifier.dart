@@ -29,8 +29,8 @@ class ThemeModifier extends StatelessWidget {
               dayColor: Color(0xFFFDE456),
               nightColor: Color(0xFF57209D),
               value: themeProvider.isDarkMode,
-              moonImage: AssetImage('lib/assets/switch_light.png'),
-              sunImage: AssetImage('lib/assets/switch_dark.png'),
+              moonImage: AssetImage('lib/assets/light.png'),
+              sunImage: AssetImage('lib/assets/dark.png'),
               sunColor: Color(0xFF57209D),
               moonColor: Color(0xFFFDE456),
               onChanged: (value) {
