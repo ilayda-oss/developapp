@@ -1,21 +1,45 @@
+import 'package:day_night_switch/day_night_switch.dart';
 import 'package:flutter/material.dart';
 
-class ThemeProvider extends ChangeNotifier {
-  bool isDarkMode = false;
+import 'package:provider/provider.dart';
 
-  void toogleTheme() {
-    isDarkMode = !isDarkMode;
-    notifyListeners();
+import '../../provider/theme_provider.dart';
+
+class ThemeModifier extends StatelessWidget {
+  const ThemeModifier({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
+    final windowPadding = MediaQuery.of(context).padding;
+    return Row(
+      children: [
+        Image.asset(
+          themeProvider.switchButtonImage,
+          width: 24,
+          height: 24,
+          color: themeProvider.switchButtonColor,
+        ),
+        SizedBox(width: 10), // Görüntü ile anahtar arasına boşluk ekledik
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+          child: Transform.scale(
+            scale: 0.5,
+            child: DayNightSwitch(
+              dayColor: Color(0xFFFDE456),
+              nightColor: Color(0xFF57209D),
+              value: themeProvider.isDarkMode,
+              moonImage: AssetImage('lib/assets/switch_light.png'),
+              sunImage: AssetImage('lib/assets/switch_dark.png'),
+              sunColor: Color(0xFF57209D),
+              moonColor: Color(0xFFFDE456),
+              onChanged: (value) {
+                themeProvider.toggleTheme();
+              },
+            ),
+          ),
+        ),
+      ],
+    );
   }
-
-  Color get primaryColor => Color.fromARGB(255, 228, 103, 176);
-  Color get appBarColor => Color.fromARGB(255, 228, 103, 176);
-  Color get bodyColor => isDarkMode ? Color(0xFF57209D) : Color(0xFFFDE456);
-  Color get buttonColor => isDarkMode ? Color(0xFF57209D) : Color(0xFFFDE456);
-  Color get switchButtonColor =>
-      isDarkMode ? Color(0xFF57209D) : Color(0xFFFDE456);
-  String get switchImage =>
-      isDarkMode ? 'lib/images/dark.png' : 'lib/images/light.png';
-  Color get textColor =>
-      isDarkMode ? const Color(0xFF57209D) : Color(0xFFFDE456);
 }
