@@ -10,12 +10,6 @@ class HomeScreen extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
-            actions: [
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                child: ChangeThemeButtonWidget(),
-              ),
-            ],
             backgroundColor: Color.fromARGB(255, 228, 103, 176),
             automaticallyImplyLeading: false,
             leading: Image.asset('lib/images/logosarı.png'),

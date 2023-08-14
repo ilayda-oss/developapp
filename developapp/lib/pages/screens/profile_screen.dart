@@ -16,10 +16,7 @@ class ProfileScreen extends StatelessWidget {
         child: Scaffold(
       drawer: NavBar(),
       backgroundColor: Color(0xFFFDE456),
-      appBar: AppBar(
-        actions: [ChangeThemeButtonWidget()],
-        backgroundColor: Color.fromARGB(255, 228, 103, 176),
-      ),
+      appBar: AppBar(),
     ));
   }
 }

@@ -9,7 +9,6 @@ class SearchScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color(0xFFFDE456),
       appBar: AppBar(
-        actions: [ChangeThemeButtonWidget()],
         backgroundColor: Color.fromARGB(255, 228, 103, 176),
         automaticallyImplyLeading: false,
         leading: Image.asset('lib/images/logosarı.png'),
