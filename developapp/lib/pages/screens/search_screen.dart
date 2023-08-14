@@ -1,4 +1,3 @@
-import 'package:developapp/components/widgets/change_theme_button.dart';
 import 'package:flutter/material.dart';
 
 class SearchScreen extends StatelessWidget {

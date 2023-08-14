@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../components/widgets/change_theme_button.dart';
-
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
