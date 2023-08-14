@@ -5,6 +5,8 @@ import 'package:developapp/pages/screens/profile_screen.dart';
 import 'package:developapp/pages/screens/search_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../../components/widgets/change_theme_button.dart';
+
 class Screen extends StatefulWidget {
   @override
   _ScreenState createState() => _ScreenState();
