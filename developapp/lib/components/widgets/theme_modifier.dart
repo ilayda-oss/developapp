@@ -20,7 +20,7 @@ class ThemeModifier extends StatelessWidget {
             left: 53,
           ),
           child: Transform.scale(
-            scale: 0.4,
+            scale: 0.45,
             child: DayNightSwitch(
               dayColor: Color(0xFFFDE456),
               nightColor: Color(0xFF57209D),

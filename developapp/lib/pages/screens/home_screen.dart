@@ -41,7 +41,9 @@ class HomeScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
                 child: Container(
                   height: 250,
-                  color: themeProvider.isDarkMode ? Colors.yellow : null,
+                  color: themeProvider.isDarkMode
+                      ? Color(0xFFFDE456)
+                      : Color(0xFF57209D),
                 ),
               ),
             ),
@@ -53,7 +55,9 @@ class HomeScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
                 child: Container(
                   height: 250,
-                  color: themeProvider.isDarkMode ? Colors.yellow : null,
+                  color: themeProvider.isDarkMode
+                      ? Color(0xFFFDE456)
+                      : Color(0xFF57209D),
                 ),
               ),
             ),
@@ -65,7 +69,9 @@ class HomeScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
                 child: Container(
                   height: 250,
-                  color: themeProvider.isDarkMode ? Colors.yellow : null,
+                  color: themeProvider.isDarkMode
+                      ? Color(0xFFFDE456)
+                      : Color(0xFF57209D),
                 ),
               ),
             ),
