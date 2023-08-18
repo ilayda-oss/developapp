@@ -1,3 +1,7 @@
+import 'dart:html';
+
+import 'package:developapp/pages/bar_items/profile_settings.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -20,14 +24,29 @@ class NavBar extends StatelessWidget {
           UserAccountsDrawerHeader(
             accountName: Text("User122535"),
             accountEmail: Text(user.email!),
-            currentAccountPicture: CircleAvatar(
-              child: ClipOval(
-                  child: Image.network(
-                'https://wallpaperaccess.com/full/6295120.jpg',
-                width: 90,
-                height: 90,
-                fit: BoxFit.cover,
-              )),
+            currentAccountPicture: GestureDetector(
+              onTap: () async {
+                final results = await FilePicker.platform.pickFiles(
+                    allowMultiple: false,
+                    type: FileType.custom,
+                    allowedExtensions: ['png', 'jpg']);
+                if (results == null) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text("No File Selected")));
+                  return null;
+                }
+                final path = results.files.single.path;
+                final fileName = results.files.single.name;
+              },
+              child: CircleAvatar(
+                child: ClipOval(
+                    child: Image.network(
+                  'https://wallpaperaccess.com/full/6295120.jpg',
+                  width: 90,
+                  height: 90,
+                  fit: BoxFit.cover,
+                )),
+              ),
             ),
             decoration: BoxDecoration(
                 image: DecorationImage(

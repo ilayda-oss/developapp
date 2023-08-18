@@ -1,9 +1,9 @@
-import 'package:developapp/components/nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../components/widgets/theme_modifier.dart';
 import '../../provider/theme_provider.dart';
+import '../bar_items/nav_bar.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
