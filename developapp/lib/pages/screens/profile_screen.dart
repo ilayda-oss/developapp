@@ -17,7 +17,7 @@ class ProfileScreen extends StatelessWidget {
         drawer: NavBar(),
         backgroundColor: themeProvider.bodyColor,
         appBar: AppBar(
-          backgroundColor: Color.fromARGB(255, 228, 103, 176),
+          backgroundColor: themeProvider.appBarColor,
           actions: [
             ThemeModifier(),
           ],

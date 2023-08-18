@@ -13,7 +13,7 @@ class NotificationScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: themeProvider.bodyColor,
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 228, 103, 176),
+        backgroundColor: themeProvider.appBarColor,
         automaticallyImplyLeading: false,
         leading: Image.asset(
           themeProvider.isDarkMode

@@ -9,7 +9,9 @@ class ThemeProvider extends ChangeNotifier {
   }
 
   Color get primaryColor => Color.fromARGB(255, 228, 103, 176);
-  Color get appBarColor => Color.fromARGB(255, 228, 103, 176);
+  Color get appBarColor => isDarkMode
+      ? Color.fromARGB(255, 207, 145, 255)
+      : Color.fromARGB(255, 233, 146, 88);
   Color get bodyColor => isDarkMode ? Color(0xFF57209D) : Color(0xFFFDE456);
   Color get assetColor => isDarkMode ? Color(0xFFFDE456) : Color(0xFF57209D);
   Color get switchButtonColor =>
@@ -21,4 +23,6 @@ class ThemeProvider extends ChangeNotifier {
       isDarkMode ? const Color(0xFF57209D) : Color(0xFFFDE456);
   Color get buttonColor =>
       isDarkMode ? const Color(0xFF57209D) : Color(0xFFFDE456);
+
+  // Color.fromARGB(255, 228, 103, 176);
 }
