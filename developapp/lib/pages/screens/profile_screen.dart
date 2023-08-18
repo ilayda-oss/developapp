@@ -1,19 +1,28 @@
 import 'package:developapp/components/nav_bar.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../components/widgets/theme_modifier.dart';
+import '../../provider/theme_provider.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
+
     return Container(
       child: Scaffold(
-          drawer: NavBar(),
-          backgroundColor: Color(0xFFFDE456),
-          appBar: AppBar(
-            backgroundColor: Color.fromARGB(255, 228, 103, 176),
-          )),
+        drawer: NavBar(),
+        backgroundColor: themeProvider.bodyColor,
+        appBar: AppBar(
+          backgroundColor: Color.fromARGB(255, 228, 103, 176),
+          actions: [
+            ThemeModifier(),
+          ],
+        ),
+      ),
     );
   }
 }

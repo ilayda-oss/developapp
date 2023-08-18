@@ -1,63 +1,71 @@
+import 'package:developapp/components/widgets/theme_modifier.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../provider/theme_provider.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
+    MediaQuery.of(context).platformBrightness == Brightness.dark;
     return Scaffold(
-      backgroundColor: Color(0xFFFDE456),
+      backgroundColor: themeProvider.bodyColor,
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
-            backgroundColor: Color.fromARGB(255, 228, 103, 176),
+            backgroundColor: themeProvider.appBarColor,
             automaticallyImplyLeading: false,
-            leading: Image.asset('lib/images/logosarı.png'),
+            leading: Image.asset(
+              themeProvider.isDarkMode
+                  ? 'lib/images/logomor.png'
+                  : 'lib/images/logosarı.png',
+            ),
             title: Text(
               "e v e l o p",
               style: TextStyle(
-                fontSize: 25,
-                fontWeight: FontWeight.w900,
-                color: Color(0xFFFDE456),
-              ),
+                  fontSize: 25,
+                  fontWeight: FontWeight.w900,
+                  color: themeProvider.textColor),
             ),
             expandedHeight: 20, // Bu değeri ihtiyaca göre ayarlayın
             flexibleSpace: FlexibleSpaceBar(
-              background: Container(
-                color: Color(0xFF57209D),
-              ),
+              background: Container(color: themeProvider.appBarColor),
             ),
+            actions: [ThemeModifier()],
           ),
           SliverToBoxAdapter(
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(18.0),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(20),
                 child: Container(
                   height: 250,
-                  color: Color(0xFF57209D),
+                  color: themeProvider.isDarkMode ? Colors.yellow : null,
                 ),
               ),
             ),
           ),
           SliverToBoxAdapter(
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(18.0),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(20),
                 child: Container(
                   height: 250,
-                  color: Color(0xFF57209D),
+                  color: themeProvider.isDarkMode ? Colors.yellow : null,
                 ),
               ),
             ),
           ),
           SliverToBoxAdapter(
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(18.0),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(20),
                 child: Container(
                   height: 250,
-                  color: Color(0xFF57209D),
+                  color: themeProvider.isDarkMode ? Colors.yellow : null,
                 ),
               ),
             ),

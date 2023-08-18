@@ -1,24 +1,32 @@
+import 'package:developapp/components/widgets/theme_modifier.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../provider/theme_provider.dart';
 
 class SearchScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final isDarkMode =
-        MediaQuery.of(context).platformBrightness == Brightness.dark;
+    final themeProvider = Provider.of<ThemeProvider>(context);
+    MediaQuery.of(context).platformBrightness == Brightness.dark;
     return Scaffold(
-      backgroundColor: Color(0xFFFDE456),
+      backgroundColor: themeProvider.bodyColor,
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 228, 103, 176),
+        backgroundColor: themeProvider.appBarColor,
         automaticallyImplyLeading: false,
-        leading: Image.asset('lib/images/logosarı.png'),
+        leading: Image.asset(
+          themeProvider.isDarkMode
+              ? 'lib/images/logomor.png'
+              : 'lib/images/logosarı.png',
+        ),
         title: Text(
           "e v e l o p",
           style: TextStyle(
-            fontSize: 25,
-            fontWeight: FontWeight.w900,
-            color: isDarkMode ? Colors.white : Color(0xFF57209D),
-          ),
+              fontSize: 25,
+              fontWeight: FontWeight.w900,
+              color: themeProvider.textColor),
         ),
+        actions: [ThemeModifier()],
       ),
       body: Center(
         child: Text(

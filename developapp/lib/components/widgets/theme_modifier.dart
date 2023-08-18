@@ -14,23 +14,19 @@ class ThemeModifier extends StatelessWidget {
     final windowPadding = MediaQuery.of(context).padding;
     return Row(
       children: [
-        Image.asset(
-          themeProvider.switchButtonImage,
-          width: 24,
-          height: 24,
-          color: themeProvider.switchButtonColor,
-        ),
         SizedBox(width: 10), // Görüntü ile anahtar arasına boşluk ekledik
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+          padding: const EdgeInsets.only(
+            left: 53,
+          ),
           child: Transform.scale(
-            scale: 0.5,
+            scale: 0.4,
             child: DayNightSwitch(
               dayColor: Color(0xFFFDE456),
               nightColor: Color(0xFF57209D),
               value: themeProvider.isDarkMode,
-              moonImage: AssetImage('lib/assets/light.png'),
-              sunImage: AssetImage('lib/assets/dark.png'),
+              moonImage: AssetImage('lib/images/dark.png'),
+              sunImage: AssetImage('lib/images/light.png'),
               sunColor: Color(0xFF57209D),
               moonColor: Color(0xFFFDE456),
               onChanged: (value) {
