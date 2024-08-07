@@ -1,6 +1,6 @@
 # developapp
 - ### Develop App fikri ve tasarımı arayüzleri ve  uygulamanın planlanması adına bir ekip işidir. 
-- ### Paylaştığım kodlar benim uygulamaya sağladığım geliştirici rolündeki oluşturduğum (user interface ve authetcation, user experience) üründür.
+- ### Paylaştığım kodlar benim uygulamaya sağladığım geliştirici rolündeki oluşturduğum (user interface ve authentication, user experience) üründür.
 ## Develop App 
 Kullanıcıların deneyimlerini diğer kullanıcılarla paylaştığı ve tecrübe kazandığı bir platfromdur.
 Kişi ihtiyacı olan kategoride yardım almak için açılmış ilgili ilanlardan kedine uygun olanını seçer ve yardım alır.   
