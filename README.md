@@ -1,10 +1,10 @@
 # developapp
 - ### Develop App fikri ve tasarımı arayüzleri ve  uygulamanın planlanması adına bir ekip işidir. 
-İrem Özcan 
-Koraycan Kaya
-Ata Murat Bozkurt
-Tuğrahan Karakadıoğlu
-Sude İlayda Özkara
+-İrem Özcan 
+-Koraycan Kaya
+-Ata Murat Bozkurt
+-Tuğrahan Karakadıoğlu
+-Sude İlayda Özkara
 
 - ### Paylaştığım kodlar benim uygulamaya sağladığım geliştirici rolündeki oluşturduğum (user interface ve authentication, user experience) üründür.
 ## Develop App 
